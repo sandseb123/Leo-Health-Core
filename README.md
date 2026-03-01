@@ -19,7 +19,7 @@ Apple Health locks your biometrics in a 4GB XML file. Whoop buries yours in CSVs
 Local LLM that analyses your data privately. Bloodwork history, wearable trends, medical literature — all on your Mac, nothing leaves your machine.
 
 **[Join the waitlist →](https://sandseb123.github.io/Leo-Health-Core)**
-Founding members get lifetime preferred pricing.
+
 
 ---
 
