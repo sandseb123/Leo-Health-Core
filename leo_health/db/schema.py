@@ -26,10 +26,6 @@ CREATE TABLE IF NOT EXISTS heart_rate (
     unit            TEXT DEFAULT 'count/min',
     recorded_at     TEXT NOT NULL,              -- ISO8601
     device          TEXT,
-    active_calories REAL,
-    avg_cadence     REAL,
-    avg_hr          REAL,
-    max_hr          REAL,                       -- e.g. 'Apple Watch'
     created_at      TEXT DEFAULT (datetime('now'))
 );
 
@@ -42,10 +38,6 @@ CREATE TABLE IF NOT EXISTS hrv (
     unit            TEXT DEFAULT 'ms',
     recorded_at     TEXT NOT NULL,
     device          TEXT,
-    active_calories REAL,
-    avg_cadence     REAL,
-    avg_hr          REAL,
-    max_hr          REAL,
     created_at      TEXT DEFAULT (datetime('now'))
 );
 
@@ -58,11 +50,7 @@ CREATE TABLE IF NOT EXISTS sleep (
     end             TEXT,                       -- ISO8601 (Apple Health)
     recorded_at     TEXT NOT NULL,
     device          TEXT,
-    active_calories REAL,
-    avg_cadence     REAL,
-    avg_hr          REAL,
-    max_hr          REAL,
-    -- Whoop-specific aggregates (NULL for Apple Health rows)
+    -- Aggregate fields (Whoop / Oura — NULL for Apple Health stage rows)
     sleep_performance_pct   REAL,
     time_in_bed_hours       REAL,
     light_sleep_hours       REAL,

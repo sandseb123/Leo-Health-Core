@@ -12,7 +12,12 @@ requires-python = ">=3.9"
 dependencies = []
 
 [project.optional-dependencies]
-dev = ["pytest>=7.0"]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.0",
+    "ruff>=0.4",
+    "mypy>=1.9",
+]
 
 [project.scripts]
 leo       = "leo_health.status:main"
@@ -22,3 +27,28 @@ leo-dash  = "leo_health.dashboard:main"
 [tool.setuptools.packages.find]
 where   = ["."]
 include = ["leo_health*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "--cov=leo_health --cov-report=term-missing --cov-fail-under=60"
+
+[tool.coverage.run]
+omit = [
+    "leo_health/dashboard.py",  # web UI — not unit-testable
+    "leo_health/status.py",     # CLI output — not unit-testable
+    "leo_health/watcher.py",    # daemon / file I/O — integration tested
+]
+
+[tool.ruff]
+target-version = "py39"
+line-length    = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = [
+    "E501",  # line too long — dashboard.py has long HTML strings
+]
+
+[tool.mypy]
+python_version      = "3.9"
+ignore_missing_imports = true
