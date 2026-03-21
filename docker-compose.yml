@@ -1,19 +1,30 @@
-
 services:
-  leo-health:
+  leo-dashboard:
     build: .
-    container_name: leo-health
+    container_name: leo-dashboard
     ports:
       - "127.0.0.1:5380:5380"
+    volumes:
+      - leo-data:/data
+    environment:
+      - LEO_DB_PATH=/data/leo.db
+      - LEO_HOST=0.0.0.0
+    user: "10001:10001"
+    restart: unless-stopped
+    command: leo-dash
+
+  leo-watcher:
+    build: .
+    container_name: leo-watcher
     volumes:
       - leo-data:/data
       - ./imports:/imports
     environment:
       - LEO_DB_PATH=/data/leo.db
-      - LEO_HOST=0.0.0.0
       - LEO_WATCH_FOLDER=/imports
     user: "10001:10001"
     restart: unless-stopped
+    command: leo-watch
 
 volumes:
   leo-data:
