@@ -309,7 +309,7 @@ def parse_folder(folder_path: str) -> dict:
             parsed = parse(filepath)
             for key in result:
                 result[key].extend(parsed.get(key, []))
-        except Exception:
+        except (csv.Error, UnicodeDecodeError, ValueError):
             # Skip files that can't be parsed (e.g. non-Whoop CSVs in folder)
             continue
 

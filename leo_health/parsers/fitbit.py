@@ -280,8 +280,8 @@ def parse(zip_path: str) -> dict:
             try:
                 with zf.open(name) as f:
                     data = json.load(f)
-            except (json.JSONDecodeError, KeyError, Exception):
-                continue  # Skip malformed files silently
+            except (json.JSONDecodeError, KeyError, UnicodeDecodeError):
+                continue  # Skip malformed files
 
             if not isinstance(data, list) or not data:
                 continue

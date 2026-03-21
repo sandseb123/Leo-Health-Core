@@ -78,8 +78,9 @@ cp ~/Downloads/whoop_recovery.csv imports/
 ```bash
 docker run \
   -p 127.0.0.1:5380:5380 \
-  -v ~/.leo-health:/home/leo/.leo-health \
+  -v ~/.leo-health:/data \
   -e LEO_HOST=0.0.0.0 \
+  -e LEO_DB_PATH=/data/leo.db \
   leo-health
 ```
 

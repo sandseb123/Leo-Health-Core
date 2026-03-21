@@ -340,7 +340,7 @@ def parse_folder(folder_path: str) -> dict:
             parsed = parse(filepath)
             for key in result:
                 result[key].extend(parsed.get(key, []))
-        except Exception:
+        except (csv.Error, UnicodeDecodeError, ValueError):
             continue  # Skip non-Oura CSVs in the folder
 
     return result

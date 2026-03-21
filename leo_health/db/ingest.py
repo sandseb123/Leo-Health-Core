@@ -15,7 +15,9 @@ from .schema import create_schema, DEFAULT_DB_PATH
 _ALLOWED_COLUMNS: dict[str, set] = {
     "heart_rate":     {"source","metric","value","unit","recorded_at","device"},
     "hrv":            {"source","metric","value","unit","recorded_at","device"},
-    "sleep":          {"source","stage","start","end","recorded_at","device"},
+    "sleep":          {"source","stage","start","end","recorded_at","device",
+                       "sleep_performance_pct","time_in_bed_hours","light_sleep_hours",
+                       "rem_sleep_hours","deep_sleep_hours","awake_hours","disturbances"},
     "workouts":       {"source","activity","duration_minutes","distance_km",
                        "calories","recorded_at","end","device",
                        "active_calories","avg_cadence","avg_hr","max_hr"},
