@@ -253,13 +253,14 @@ flowchart TD
 - [x] `leo` terminal dashboard
 - [x] `leo-watch` auto-ingest watcher
 - [x] AirDrop → auto-parse workflow
+- [x] Docker support (cross-platform)
+- [x] Linux & Windows support (via Docker)
 - [ ] Oura Ring CSV support
-- [ ] Linux support
 - [ ] Fitbit CSV support
 - [ ] Garmin `.fit` support
 - [ ] Leo Max — AI Health Coach *(local LLM, fully private)*
 - [ ] Leo Max — bloodwork PDF/photo ingestion
-- [ ] Leo Max — macOS app *(no Terminal required)*
+- [ ] Leo Max — native macOS app *(no Terminal required)*
 
 ---
 
